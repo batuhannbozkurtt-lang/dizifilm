@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AROMABAR | Lüks & Niş Parfüm Koleksiyonu</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cormorant Garamond & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#5B8265',
+                            'green-dark': '#43614B',
+                            'green-light': '#78A183',
+                            gold: '#DEC565',
+                            'gold-dark': '#B89F43',
+                            'gold-light': '#F5EA9F',
+                            bg: '#FDFBF7',
+                            'bg-alt': '#F5F2EB',
+                            dark: '#2A302C',
+                            muted: '#616963',
+                            card: '#FFFFFF'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FDFBF7;
+            color: #2A302C;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5, .font-serif-custom {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F5F2EB;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #5B8265;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #43614B;
+        }
+        /* Gold Shimmer Text Effect */
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #DEC565 0%, #B89F43 50%, #F5EA9F 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Glassmorphism */
+        .glass-panel {
+            background: rgba(253, 251, 247, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-gold selection:text-brand-dark">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-brand-dark text-brand-gold-light text-xs font-light py-2 text-center tracking-widest uppercase border-b border-brand-gold/20">
+        <span class="inline-block animate-pulse mr-2">✦</span> Tüm Siparişlerde Özel Lüks Hediye Kutusu ve Ücretsiz Kargo <span class="inline-block animate-pulse ml-2">✦</span>
+    </div>
+
+    <!-- NAVIGATION BAR -->
+    <header class="sticky top-0 z-40 glass-panel border-b border-brand-green/10 transition-all duration-300" id="mainHeader">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobileMenuBtn" class="lg:hidden text-brand-dark hover:text-brand-green p-2 text-xl transition-colors">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+
+            <!-- Brand Logo -->
+            <a href="#" class="flex flex-col items-center group">
+                <span class="font-serif text-2xl sm:text-3xl font-bold tracking-[0.25em] text-brand-dark group-hover:text-brand-green transition-colors">AROMABAR</span>
+                <span class="text-[9px] tracking-[0.35em] text-brand-gold uppercase -mt-1 font-semibold">Haute Parfumerie</span>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden lg:flex items-center space-x-8 text-xs uppercase tracking-widest font-medium text-brand-dark/80">
+                <a href="#koleksiyon" class="hover:text-brand-green transition-colors py-2 border-b-2 border-transparent hover:border-brand-gold">Koleksiyon</a>
+                <a href="#koku-testi" class="hover:text-brand-green transition-colors py-2 border-b-2 border-transparent hover:border-brand-gold flex items-center gap-1.5 text-brand-green font-semibold">
+                    <i class="fa-solid fa-wand-magic-sparkles text-brand-gold"></i> Parfüm Testi
+                </a>
+                <a href="#notalar" class="hover:text-brand-green transition-colors py-2 border-b-2 border-transparent hover:border-brand-gold">Notalar Keşfi</a>
+                <a href="#hikayemiz" class="hover:text-brand-green transition-colors py-2 border-b-2 border-transparent hover:border-brand-gold">Hakkımızda</a>
+                <a href="#iletisim" class="hover:text-brand-green transition-colors py-2 border-b-2 border-transparent hover:border-brand-gold">İletişim</a>
+            </nav>
+
+            <!-- Utility Icons -->
+            <div class="flex items-center space-x-5 text-brand-dark">
+                <!-- Search Button -->
+                <button id="searchOpenBtn" class="p-2 hover:text-brand-green transition-colors">
+                    <i class="fa-solid fa-magnifying-glass text-lg"></i>
+                </button>
+                
+                <!-- Shopping Cart Button -->
+                <button id="cartOpenBtn" class="p-2 hover:text-brand-green transition-colors relative">
+                    <i class="fa-solid fa-bag-shopping text-xl"></i>
+                    <span id="cartBadge" class="absolute -top-1 -right-1 bg-brand-gold text-brand-dark font-bold text-[10px] w-5 h-5 rounded-full flex items-center justify-center border-2 border-white transform scale-0 transition-transform duration-300">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE NAVIGATION DRAWER -->
+    <div id="mobileDrawer" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="fixed top-0 left-0 w-4/5 max-w-sm h-full bg-brand-bg p-6 shadow-2xl flex flex-col justify-between transform -translate-x-full transition-transform duration-300" id="mobileDrawerContent">
+            <div>
+                <div class="flex justify-between items-center pb-6 border-b border-brand-green/10">
+                    <span class="font-serif text-2xl font-bold tracking-[0.2em] text-brand-dark">AROMABAR</span>
+                    <button id="mobileMenuCloseBtn" class="text-brand-dark text-2xl hover:text-brand-green">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <nav class="mt-8 flex flex-col space-y-5 text-sm uppercase tracking-wider font-medium">
+                    <a href="#koleksiyon" class="mobile-nav-link text-brand-dark hover:text-brand-green">Koleksiyon</a>
+                    <a href="#koku-testi" class="mobile-nav-link text-brand-green font-semibold flex items-center gap-2">
+                        <i class="fa-solid fa-wand-magic-sparkles text-brand-gold"></i> Parfüm Testi
+                    </a>
+                    <a href="#notalar" class="mobile-nav-link text-brand-dark hover:text-brand-green">Notalar Keşfi</a>
+                    <a href="#hikayemiz" class="mobile-nav-link text-brand-dark hover:text-brand-green">Hakkımızda</a>
+                    <a href="#iletisim" class="mobile-nav-link text-brand-dark hover:text-brand-green">İletişim</a>
+                </nav>
+            </div>
+            <div class="pt-6 border-t border-brand-green/10">
+                <div class="flex items-center space-x-4 text-brand-dark text-lg">
+                    <a href="#" class="hover:text-brand-green"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-brand-green"><i class="fa-brands fa-pinterest-p"></i></a>
+                    <a href="#" class="hover:text-brand-green"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[85vh] flex items-center justify-center bg-gradient-to-br from-brand-bg via-brand-bg-alt to-[#ECE7DB] overflow-hidden py-16">
+        <!-- Subtle Organic Background Shapes -->
+        <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-brand-green/10 blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-brand-gold/15 blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid lg:grid-cols-12 gap-12 items-center">
+            <!-- Hero Text Content -->
+            <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-green/10 border border-brand-green/20 text-brand-green text-xs font-semibold uppercase tracking-widest">
+                    <i class="fa-solid fa-crown text-brand-gold"></i> Niş Esans Sanatı
+                </div>
+                <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-light text-brand-dark leading-tight">
+                    Doğanın Derin Esansları, <br>
+                    <span class="italic font-normal text-brand-green">Lüksün Dokunuşu</span>
+                </h1>
+                <p class="text-brand-muted text-base sm:text-lg max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
+                    Aromabar, nadir botanik özleri ve sanatsal distilasyon tekniklerini bir araya getirerek teninizde unutulmaz bir imza bırakan benzersiz parfüm kreasyonları sunar.
+                </p>
+                <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                    <a href="#koleksiyon" class="w-full sm:w-auto px-8 py-4 bg-brand-green text-white font-medium text-xs uppercase tracking-widest rounded-full shadow-lg hover:bg-brand-green-dark transition-all duration-300 transform hover:-translate-y-0.5 text-center">
+                        Koleksiyonu İncele
+                    </a>
+                    <a href="#koku-testi" class="w-full sm:w-auto px-8 py-4 bg-transparent border border-brand-gold text-brand-dark hover:bg-brand-gold/10 font-medium text-xs uppercase tracking-widest rounded-full transition-all duration-300 flex items-center justify-center gap-2 text-center">
+                        <i class="fa-solid fa-wand-magic-sparkles text-brand-gold"></i> Koku Testini Çöz
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Visual Bottle Art -->
+            <div class="lg:col-span-5 flex justify-center relative">
+                <div class="relative w-72 h-96 sm:w-80 sm:h-[420px] rounded-t-full bg-gradient-to-b from-brand-card to-brand-bg border border-brand-gold/30 p-6 flex flex-col items-center justify-between shadow-2xl">
+                    <!-- Gold Floating Badge -->
+                    <div class="absolute -top-4 -right-4 bg-brand-dark text-brand-gold p-4 rounded-full border border-brand-gold/40 shadow-xl text-center transform rotate-12">
+                        <span class="block font-serif text-lg leading-none">100%</span>
+                        <span class="text-[9px] uppercase tracking-tighter">Saf Esans</span>
+                    </div>
+
+                    <!-- SVG Bottle Visualization -->
+                    <div class="w-full h-full flex flex-col items-center justify-center my-auto">
+                        <!-- Bottle Cap -->
+                        <div class="w-16 h-10 bg-gradient-to-r from-brand-gold via-brand-gold-light to-brand-gold-dark rounded-t-md shadow-md border-b border-black/20"></div>
+                        <div class="w-8 h-4 bg-brand-dark/20"></div>
+                        <!-- Bottle Body -->
+                        <div class="w-48 h-60 rounded-3xl bg-gradient-to-b from-brand-green/80 to-brand-green-dark/95 p-4 flex flex-col items-center justify-between border-2 border-brand-gold/40 shadow-2xl relative overflow-hidden">
+                            <!-- Inner Liquid Accent -->
+                            <div class="absolute inset-x-0 bottom-0 h-3/4 bg-brand-green opacity-90 rounded-b-2xl"></div>
+                            <div class="relative z-10 w-full text-center mt-6">
+                                <span class="block font-serif text-xs tracking-[0.3em] text-brand-gold uppercase">Aromabar</span>
+                                <span class="block font-serif text-xl text-white font-semibold tracking-wider mt-1">L'SANG</span>
+                                <span class="block text-[8px] text-brand-gold-light uppercase tracking-widest mt-0.5">Extrait de Parfum</span>
+                            </div>
+                            <div class="relative z-10 w-8 h-8 rounded-full border border-brand-gold/50 flex items-center justify-center text-brand-gold text-xs">
+                                ✦
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE SCENT MATCHER (KOKU TESTİ) -->
+    <section id="koku-testi" class="py-20 bg-brand-card border-y border-brand-green/10 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center space-y-3 mb-10">
+                <span class="text-xs uppercase tracking-[0.25em] text-brand-gold font-semibold">Kişiselleştirilmiş Deneyim</span>
+                <h2 class="font-serif text-3xl sm:text-4xl text-brand-dark font-normal">İmza Kokunuzu Bulun</h2>
+                <p class="text-brand-muted text-sm max-w-lg mx-auto font-light">
+                    3 hızlı soruda ruh halinize, yaşam tarzınıza ve tercihlerinize en uygun niş parfümü keşfedin.
+                </p>
+            </div>
+
+            <!-- Quiz Box -->
+            <div class="bg-brand-bg rounded-2xl p-6 sm:p-10 border border-brand-gold/20 shadow-xl relative min-h-[380px] flex flex-col justify-between">
+                
+                <!-- Progress Indicators -->
+                <div class="flex items-center justify-center space-x-3 mb-8" id="quizProgress">
+                    <div class="quiz-step-dot w-8 h-2 rounded-full bg-brand-green transition-all duration-300"></div>
+                    <div class="quiz-step-dot w-8 h-2 rounded-full bg-brand-green/20 transition-all duration-300"></div>
+                    <div class="quiz-step-dot w-8 h-2 rounded-full bg-brand-green/20 transition-all duration-300"></div>
+                </div>
+
+                <!-- Step 1 -->
+                <div class="quiz-step flex-1 flex flex-col justify-center" id="quizStep1">
+                    <h3 class="font-serif text-xl sm:text-2xl text-center text-brand-dark mb-6">Hangi hissi veya koku karakterini tercih edersiniz?</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <button onclick="selectQuizOption(1, 'ferah')" class="quiz-option p-5 bg-white border border-brand-green/10 hover:border-brand-gold rounded-xl text-center hover:shadow-md transition-all group">
+                            <i class="fa-solid fa-wind text-2xl text-brand-green group-hover:scale-110 transition-transform mb-2"></i>
+                            <div class="font-medium text-sm text-brand-dark">Ferah & Canlandırıcı</div>
+                            <div class="text-xs text-brand-muted font-light mt-1">Narenciye, Deniz & Yeşil Notalar</div>
+                        </button>
+                        <button onclick="selectQuizOption(1, 'odunsu')" class="quiz-option p-5 bg-white border border-brand-green/10 hover:border-brand-gold rounded-xl text-center hover:shadow-md transition-all group">
+                            <i class="fa-solid fa-tree text-2xl text-brand-green group-hover:scale-110 transition-transform mb-2"></i>
+                            <div class="font-medium text-sm text-brand-dark">Odunsu & Karizmatik</div>
+                            <div class="text-xs text-brand-muted font-light mt-1">Sandal Ağacı, Sedir & Vetiver</div>
+                        </button>
+                        <button onclick="selectQuizOption(1, 'oryantal')" class="quiz-option p-5 bg-white border border-brand-green/10 hover:border-brand-gold rounded-xl text-center hover:shadow-md transition-all group">
+                            <i class="fa-solid fa-fire text-2xl text-brand-green group-hover:scale-110 transition-transform mb-2"></i>
+                            <div class="font-medium text-sm text-brand-dark">Oryantal & Sıcak</div>
+                            <div class="text-xs text-brand-muted font-light mt-1">Amber, Vanilya & Nadir Baharatlar</div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="quiz-step hidden flex-1 flex flex-col justify-center" id="quizStep2">
+                    <h3 class="font-serif text-xl sm:text-2xl text-center text-brand-dark mb-6">Parfümünüzü en çok nerede kullanmayı planlıyorsunuz?</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <button onclick="selectQuizOption(2, 'gunduz')" class="quiz-option p-5 bg-white border border-brand-green/10 hover:border-brand-gold rounded-xl text-center hover:shadow-md transition-all group">
+                            <i class="fa-solid fa-sun text-2xl text-brand-gold group-hover:scale-110 transition-transform mb-2"></i>
+                            <div class="font-medium text-sm text-brand-dark">Günlük & Ofis</div>
+                            <div class="text-xs text-brand-muted font-light mt-1">Zarif, Hafif & Yormayan Etki</div>
+                        </button>
+                        <button onclick="selectQuizOption(2, 'gece')" class="quiz-option p-5 bg-white border border-brand-green/10 hover:border-brand-gold rounded-xl text-center hover:shadow-md transition-all group">
+                            <i class="fa-solid fa-moon text-2xl text-brand-green group-hover:scale-110 transition-transform mb-2"></i>
+                            <div class="font-medium text-sm text-brand-dark">Gece & Şık Davetler</div>
+                            <div class="text-xs text-brand-muted font-light mt-1">Yoğun, Etkileyici & Akılda Kalıcı</div>
+                        </button>
+                        <button onclick="selectQuizOption(2, 'ozel')" class="quiz-option p-5 bg-white border border-brand-green/10 hover:border-brand-gold rounded-xl text-center hover:shadow-md transition-all group">
+                            <i class="fa-solid fa-gem text-2xl text-brand-gold group-hover:scale-110 transition-transform mb-2"></i>
+                            <div class="font-medium text-sm text-brand-dark">İmza Parfüm</div>
+                            <div class="text-xs text-brand-muted font-light mt-1">Her Mevsim & Her An Fark Yaratan</div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="quiz-step hidden flex-1 flex flex-col justify-center" id="quizStep3">
+                    <h3 class="font-serif text-xl sm:text-2xl text-center text-brand-dark mb-6">Hangi mevsim ruhunu yansıtıyorsunuz?</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto w-full">
+                        <button onclick="selectQuizOption(3, 'yaz')" class="quiz-option p-5 bg-white border border-brand-green/10 hover:border-brand-gold rounded-xl text-center hover:shadow-md transition-all group">
+                            <i class="fa-solid fa-cloud-sun text-2xl text-brand-gold group-hover:scale-110 transition-transform mb-2"></i>
+                            <div class="font-medium text-sm text-brand-dark">İlkbahar - Yaz</div>
+                            <div class="text-xs text-brand-muted font-light mt-1">Güneşli, Ferah & Aydınlık</div>
+                        </button>
+                        <button onclick="selectQuizOption(3, 'kis')" class="quiz-option p-5 bg-white border border-brand-green/10 hover:border-brand-gold rounded-xl text-center hover:shadow-md transition-all group">
+                            <i class="fa-solid fa-snowflake text-2xl text-brand-green group-hover:scale-110 transition-transform mb-2"></i>
+                            <div class="font-medium text-sm text-brand-dark">Sonbahar - Kış</div>
+                            <div class="text-xs text-brand-muted font-light mt-1">Derin, Sıcak & Zengin</div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quiz Result Screen -->
+                <div class="quiz-step hidden flex-1 flex flex-col items-center justify-center text-center" id="quizResult">
+                    <div class="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-brand-gold font-semibold mb-2">
+                        <i class="fa-solid fa-circle-check"></i> %98 Uyumlu Eşleşmeniz
+                    </div>
+                    <h3 class="font-serif text-2xl sm:text-3xl text-brand-dark font-bold" id="resultPerfumeName">Velvet Amber & Oudh</h3>
+                    <p class="text-brand-muted text-xs sm:text-sm max-w-md mt-2 mb-6" id="resultPerfumeDesc">
+                        Seçimlerinize göre derin amber notaları ve asil ud ağacı dokunuşları teniniz için ideal dengedir.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <button id="resultAddToCartBtn" class="px-6 py-3 bg-brand-green text-white text-xs uppercase tracking-widest rounded-full hover:bg-brand-green-dark transition-all">
+                            Sepete Ekle - <span id="resultPerfumePrice">3.450 TL</span>
+                        </button>
+                        <button onclick="resetQuiz()" class="px-4 py-3 text-xs uppercase tracking-widest text-brand-muted hover:text-brand-dark underline">
+                            Tekrar Dene
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED COLLECTION (ÜRÜN KATALOĞU) -->
+    <section id="koleksiyon" class="py-20 bg-brand-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-xs uppercase tracking-[0.25em] text-brand-gold font-semibold">Özel Seçki</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl text-brand-dark font-normal">Aromabar Koleksiyonu</h2>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="flex flex-wrap gap-2 mt-6 md:mt-0 text-xs uppercase tracking-wider">
+                    <button onclick="filterProducts('all')" class="filter-btn active px-4 py-2 rounded-full border border-brand-green bg-brand-green text-white transition-all">Tümü</button>
+                    <button onclick="filterProducts('nis')" class="filter-btn px-4 py-2 rounded-full border border-brand-green/20 text-brand-dark hover:border-brand-green transition-all">Niş Parfümler</button>
+                    <button onclick="filterProducts('unisex')" class="filter-btn px-4 py-2 rounded-full border border-brand-green/20 text-brand-dark hover:border-brand-green transition-all">Unisex</button>
+                    <button onclick="filterProducts('kadin')" class="filter-btn px-4 py-2 rounded-full border border-brand-green/20 text-brand-dark hover:border-brand-green transition-all">Kadın</button>
+                    <button onclick="filterProducts('erkek')" class="filter-btn px-4 py-2 rounded-full border border-brand-green/20 text-brand-dark hover:border-brand-green transition-all">Erkek</button>
+                </div>
+            </div>
+
+            <!-- Product Cards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="productGrid">
+                <!-- Products dynamically rendered via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE SCENT ACCORD EXPLORER (NOTALAR KEŞFİ) -->
+    <section id="notalar" class="py-20 bg-brand-bg-alt border-y border-brand-green/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center space-y-3 mb-12">
+                <span class="text-xs uppercase tracking-[0.25em] text-brand-gold font-semibold">Koku Piramidi</span>
+                <h2 class="font-serif text-3xl sm:text-5xl text-brand-dark font-normal">Notaların Mimarisi</h2>
+                <p class="text-brand-muted text-sm max-w-xl mx-auto font-light">
+                    Bir parfümün zamanla tene yerleşme serüveni. Her nota katmanının ardındaki botanik harikaları keşfedin.
+                </p>
+            </div>
+
+            <!-- Accord Tabs -->
+            <div class="flex justify-center mb-8 border-b border-brand-green/10">
+                <div class="inline-flex space-x-8">
+                    <button onclick="switchAccordTab('top')" id="accordTab-top" class="accord-tab-btn pb-4 font-serif text-xl text-brand-green border-b-2 border-brand-green font-semibold transition-all">
+                        Üst Notalar <span class="text-xs font-sans text-brand-muted font-normal block">(İlk 15 Dakika)</span>
+                    </button>
+                    <button onclick="switchAccordTab('heart')" id="accordTab-heart" class="accord-tab-btn pb-4 font-serif text-xl text-brand-dark/60 border-b-2 border-transparent hover:text-brand-green transition-all">
+                        Orta (Kalp) Notalar <span class="text-xs font-sans text-brand-muted font-normal block">(2 - 4 Saat)</span>
+                    </button>
+                    <button onclick="switchAccordTab('base')" id="accordTab-base" class="accord-tab-btn pb-4 font-serif text-xl text-brand-dark/60 border-b-2 border-transparent hover:text-brand-green transition-all">
+                        Dip (Alt) Notalar <span class="text-xs font-sans text-brand-muted font-normal block">(6+ Saat)</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Accord Content Panels -->
+            <div id="accordContent" class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+                <!-- Dynamically populated via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- BRAND STORY & SENSORY SHOWCASE -->
+    <section id="hikayemiz" class="py-24 bg-brand-dark text-white relative overflow-hidden">
+        <!-- Background Glow -->
+        <div class="absolute top-1/2 left-0 w-72 h-72 bg-brand-green/20 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-6">
+                    <span class="text-xs uppercase tracking-[0.3em] text-brand-gold font-semibold">Sanatsal Distilasyon</span>
+                    <h2 class="font-serif text-4xl sm:text-6xl font-light leading-tight">
+                        Aromabar Duyu Laboratuvarı
+                    </h2>
+                    <p class="text-gray-300 text-sm sm:text-base font-light leading-relaxed">
+                        Parfüm tasarlamak yalnızca kokuları birleştirmek değil; anıları, duyguları ve doğanın saklı kalmış ruhunu şişelemektir. Aromabar olarak, dünyanın dört bir yanından sürdürülebilir yöntemlerle toplanan en nadide hammaddeleri geleneksel Fransız distilasyon teknikleriyle işliyoruz.
+                    </p>
+
+                    <!-- ASMR Sensory Showcase Cards -->
+                    <div class="grid sm:grid-cols-3 gap-4 pt-4">
+                        <div class="p-4 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm">
+                            <i class="fa-solid fa-droplet text-brand-gold text-2xl mb-2"></i>
+                            <h4 class="font-serif text-lg font-semibold">Saf Ekstrakt</h4>
+                            <p class="text-xs text-gray-400 font-light mt-1">%30 üzerinde yüksek esans konsantrasyonu.</p>
+                        </div>
+                        <div class="p-4 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm">
+                            <i class="fa-solid fa-leaf text-brand-gold text-2xl mb-2"></i>
+                            <h4 class="font-serif text-lg font-semibold">Etik Botanik</h4>
+                            <p class="text-xs text-gray-400 font-light mt-1">Doğaya saygılı, vegan ve cruelty-free içerik.</p>
+                        </div>
+                        <div class="p-4 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm">
+                            <i class="fa-solid fa-hand-sparkles text-brand-gold text-2xl mb-2"></i>
+                            <h4 class="font-serif text-lg font-semibold">El İşçiliği</h4>
+                            <p class="text-xs text-gray-400 font-light mt-1">Her şişe el ile mühürlenir ve numaralandırılır.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="aspect-square rounded-3xl bg-gradient-to-tr from-brand-green/40 to-brand-gold/20 p-2 border border-brand-gold/30 flex items-center justify-center">
+                        <div class="w-full h-full bg-brand-dark/90 rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden border border-white/10">
+                            <div class="flex justify-between items-start">
+                                <span class="font-serif text-3xl tracking-widest text-brand-gold">AROMABAR</span>
+                                <span class="text-xs tracking-widest uppercase border border-brand-gold/40 px-3 py-1 rounded-full text-brand-gold">ASMR Konsept</span>
+                            </div>
+
+                            <div class="my-8 text-center space-y-3">
+                                <div class="w-20 h-20 mx-auto rounded-full bg-brand-green/30 border border-brand-gold flex items-center justify-center text-brand-gold text-3xl shadow-2xl animate-pulse">
+                                    <i class="fa-solid fa-volume-high"></i>
+                                </div>
+                                <h3 class="font-serif text-2xl text-white">Duyusal Parfüm Deneyimi</h3>
+                                <p class="text-xs text-gray-400 max-w-xs mx-auto">Şişenin açılışındaki cam sesi, spreyin mikronize dağılımı ve ilk notanın tene dokunuşu.</p>
+                            </div>
+
+                            <div class="border-t border-white/10 pt-4 flex justify-between items-center text-xs text-gray-400">
+                                <span>Atölye Nişantaşı</span>
+                                <span class="text-brand-gold">✦ Haute Perfumery ✦</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="py-20 bg-brand-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center space-y-3 mb-12">
+                <span class="text-xs uppercase tracking-[0.25em] text-brand-gold font-semibold">Yorumlar</span>
+                <h2 class="font-serif text-3xl sm:text-4xl text-brand-dark font-normal">Aromabar Deneyimini Yaşayanlar</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl border border-brand-green/10 shadow-sm relative">
+                    <div class="text-brand-gold text-sm mb-3">★★★★★</div>
+                    <p class="text-brand-dark text-sm font-light italic leading-relaxed mb-6">
+                        "Velvet Amber & Oudh hayatımda kullandığım en kalıcı ve derin niş parfüm oldu. Nereye gitsem parfümümün adını soruyorlar."
+                    </p>
+                    <div>
+                        <div class="font-serif font-semibold text-brand-dark">Aylin S.</div>
+                        <div class="text-xs text-brand-muted">İstanbul</div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl border border-brand-green/10 shadow-sm relative">
+                    <div class="text-brand-gold text-sm mb-3">★★★★★</div>
+                    <p class="text-brand-dark text-sm font-light italic leading-relaxed mb-6">
+                        "Paketlemeden şişe kalitesine kadar her detay buram buram lüks kokuyor. Parfüm testinin önerdiği ürün tam bana göre çıktı!"
+                    </p>
+                    <div>
+                        <div class="font-serif font-semibold text-brand-dark">Mert K.</div>
+                        <div class="text-xs text-brand-muted">İzmir</div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl border border-brand-green/10 shadow-sm relative">
+                    <div class="text-brand-gold text-sm mb-3">★★★★★</div>
+                    <p class="text-brand-dark text-sm font-light italic leading-relaxed mb-6">
+                        "Botanical Vert özellikle yaz aylarında tazelenmek için vazgeçilmezim oldu. Doğallığı hissettiren muazzam bir harman."
+                    </p>
+                    <div>
+                        <div class="font-serif font-semibold text-brand-dark">Selin A.</div>
+                        <div class="text-xs text-brand-muted">Ankara</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER & NEWSLETTER -->
+    <footer id="iletisim" class="bg-brand-dark text-white pt-16 pb-12 border-t border-brand-gold/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Newsletter Banner -->
+            <div class="bg-gradient-to-r from-brand-green-dark to-brand-green p-8 sm:p-12 rounded-3xl mb-16 flex flex-col lg:flex-row items-center justify-between gap-8 border border-brand-gold/30">
+                <div class="space-y-2 text-center lg:text-left">
+                    <h3 class="font-serif text-2xl sm:text-3xl text-white font-normal">Aromabar Dünyasına Katılın</h3>
+                    <p class="text-brand-bg/80 text-xs sm:text-sm font-light">Yeni koleksiyon lansmanlarından ve özel tadım etkinliklerinden ilk siz haberdar olun.</p>
+                </div>
+                <form id="newsletterForm" onsubmit="handleNewsletterSubmit(event)" class="flex w-full lg:w-auto max-w-md gap-2">
+                    <input type="email" placeholder="E-posta adresiniz..." required class="w-full px-5 py-3 rounded-full bg-white/10 border border-white/20 text-white placeholder-white/50 text-xs focus:outline-none focus:border-brand-gold">
+                    <button type="submit" class="px-6 py-3 bg-brand-gold text-brand-dark font-medium text-xs uppercase tracking-widest rounded-full hover:bg-brand-gold-light transition-all shrink-0">
+                        Kaydol
+                    </button>
+                </form>
+            </div>
+
+            <!-- Links Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+                <div class="space-y-4">
+                    <a href="#" class="inline-block">
+                        <span class="font-serif text-2xl font-bold tracking-[0.2em] text-white">AROMABAR</span>
+                        <span class="block text-[8px] tracking-[0.3em] text-brand-gold uppercase">Haute Parfumerie</span>
+                    </a>
+                    <p class="text-xs text-gray-400 font-light leading-relaxed">
+                        Lüksün, doğanın ve duyusal estetiğin buluşma noktası.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-serif text-lg text-brand-gold mb-4">Butiklerimiz</h4>
+                    <ul class="space-y-2 text-xs text-gray-300 font-light">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-gold"></i> Nişantaşı, Abdi İpekçi Cad. No:42, İstanbul</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-gold"></i> Yalıkavak Marina, Bodrum</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-gold"></i> Alsancak, İzmir</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-serif text-lg text-brand-gold mb-4">Müşteri Hizmetleri</h4>
+                    <ul class="space-y-2 text-xs text-gray-300 font-light">
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Sıkça Sorulan Sorular</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Kargo ve Teslimat Prosedürü</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">İade ve Değişim Koşulları</a></li>
+                        <li><a href="#" class="hover:text-brand-gold transition-colors">Gizlilik Politikası</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-serif text-lg text-brand-gold mb-4">Bizi Takip Edin</h4>
+                    <div class="flex space-x-4 text-lg text-white mb-4">
+                        <a href="#" class="hover:text-brand-gold transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="hover:text-brand-gold transition-colors"><i class="fa-brands fa-pinterest-p"></i></a>
+                        <a href="#" class="hover:text-brand-gold transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                    <div class="text-xs text-gray-400">
+                        İletişim: info@aromabar.com.tr<br>
+                        Müşteri Hattı: +90 (212) 800 00 00
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500">
+                <p>&copy; 2026 AROMABAR Haute Parfumerie. Tüm Hakları Saklıdır.</p>
+                <div class="flex space-x-4 mt-4 sm:mt-0">
+                    <i class="fa-brands fa-cc-visa text-lg"></i>
+                    <i class="fa-brands fa-cc-mastercard text-lg"></i>
+                    <i class="fa-brands fa-cc-apple-pay text-lg"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SLIDE-OUT SHOPPING CART DRAWER -->
+    <div id="cartDrawer" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="fixed top-0 right-0 w-full sm:w-[420px] h-full bg-brand-bg p-6 shadow-2xl flex flex-col justify-between transform translate-x-full transition-transform duration-300" id="cartDrawerContent">
+            <div>
+                <!-- Drawer Header -->
+                <div class="flex justify-between items-center pb-6 border-b border-brand-green/10">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-bag-shopping text-brand-green"></i>
+                        <h3 class="font-serif text-2xl font-semibold text-brand-dark">Alışveriş Sepetim</h3>
+                    </div>
+                    <button id="cartCloseBtn" class="text-brand-dark text-2xl hover:text-brand-green">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <!-- Free Shipping Progress -->
+                <div class="mt-4 p-3 bg-brand-bg-alt rounded-xl border border-brand-green/10 text-xs">
+                    <div class="flex justify-between text-brand-dark font-medium mb-1.5" id="shippingText">
+                        <span>Ücretsiz Kargo Limiti</span>
+                        <span id="shippingDiff">2.000 TL Kaldı</span>
+                    </div>
+                    <div class="w-full bg-gray-200 h-1.5 rounded-full overflow-hidden">
+                        <div id="shippingBar" class="bg-brand-green h-full w-0 transition-all duration-500"></div>
+                    </div>
+                </div>
+
+                <!-- Cart Items List -->
+                <div id="cartItemsContainer" class="mt-6 space-y-4 max-h-[50vh] overflow-y-auto pr-1">
+                    <!-- Items rendered dynamically -->
+                </div>
+            </div>
+
+            <!-- Drawer Footer / Total -->
+            <div class="border-t border-brand-green/10 pt-6 space-y-4">
+                <div class="flex justify-between text-sm">
+                    <span class="text-brand-muted">Ara Toplam</span>
+                    <span id="cartSubtotal" class="font-semibold text-brand-dark">0 TL</span>
+                </div>
+                <div class="flex justify-between text-base font-serif font-bold text-brand-dark">
+                    <span>Genel Toplam</span>
+                    <span id="cartTotal" class="text-brand-green">0 TL</span>
+                </div>
+                <button onclick="handleCheckout()" class="w-full py-4 bg-brand-green text-white font-medium text-xs uppercase tracking-widest rounded-full shadow-lg hover:bg-brand-green-dark transition-all">
+                    Siparişi Tamamla <i class="fa-solid fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- QUICK VIEW MODAL -->
+    <div id="quickViewModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4">
+        <div class="bg-brand-bg max-w-2xl w-full rounded-3xl p-6 sm:p-8 shadow-2xl border border-brand-gold/30 relative transform scale-95 transition-transform duration-300 overflow-hidden" id="quickViewContent">
+            <button id="quickViewCloseBtn" class="absolute top-6 right-6 text-brand-dark text-xl hover:text-brand-green">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div id="quickViewModalBody" class="grid sm:grid-cols-2 gap-8 items-center">
+                <!-- Modal details rendered dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- SEARCH MODAL -->
+    <div id="searchModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 flex items-start justify-center pt-20 p-4">
+        <div class="bg-brand-bg max-w-xl w-full rounded-2xl p-6 shadow-2xl border border-brand-gold/30 relative">
+            <div class="flex items-center gap-3 border-b border-brand-green/20 pb-3">
+                <i class="fa-solid fa-magnifying-glass text-brand-green text-lg"></i>
+                <input type="text" id="searchInput" onkeyup="handleSearch()" placeholder="Parfüm adı veya nota arayın (örn: Amber, Yasemin, Ud)..." class="w-full bg-transparent border-none text-brand-dark focus:outline-none text-sm font-medium">
+                <button id="searchCloseBtn" class="text-brand-dark hover:text-brand-green">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <div id="searchResults" class="mt-4 max-h-60 overflow-y-auto space-y-2">
+                <p class="text-xs text-brand-muted text-center py-4">Aramak istediğiniz terimi yazmaya başlayın.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-brand-dark text-white border border-brand-gold px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300">
+        <i class="fa-solid fa-circle-check text-brand-gold text-lg"></i>
+        <span id="toastMessage" class="text-xs font-medium">Ürün sepete eklendi!</span>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // --- PRODUCT DATA ---
+        const products = [
+            {
+                id: 'p1',
+                name: "Velvet Amber & Oudh",
+                category: "nis",
+                gender: "unisex",
+                price: 3450,
+                volume: "100 ml / Extrait de Parfum",
+                topNotes: ["Bergamot", "Safran", "Kırmızı Biber"],
+                heartNotes: ["Isparta Gülü", "Sıcak Amber", "Tütsü"],
+                baseNotes: ["Nadir Ud Ağacı", "Madagaskar Vanilyası", "Sandal"],
+                feel: "oryantal",
+                area: "gece",
+                season: "kis",
+                imageBg: "from-amber-900 to-yellow-950",
+                description: "Nadir ud ağacı ve derin amber notalarının büyüleyici uyumu. Geceye damga vuran sıcak ve iddialı bir niş imza."
+            },
+            {
+                id: 'p2',
+                name: "Botanical Vert",
+                category: "unisex",
+                gender: "unisex",
+                price: 2890,
+                volume: "100 ml / Eau de Parfum",
+                topNotes: ["Fesleğen", "İtalyan Limonu", "Galbanum"],
+                heartNotes: ["Yeşil Çay", "Vadi Zambağı", "Enginar Yaprağı"],
+                baseNotes: ["Vetiver", "Sedir Ağacı", "Beyaz Misk"],
+                feel: "ferah",
+                area: "gunduz",
+                season: "yaz",
+                imageBg: "from-emerald-800 to-teal-950",
+                description: "Taze biçilmiş çimenler ve narenciye bahçelerinin ferahlığı. Güne enerji ve canlılıkla başlamak isteyenlere."
+            },
+            {
+                id: 'p3',
+                name: "Ethereal Jasmin",
+                category: "kadin",
+                gender: "kadin",
+                price: 3100,
+                volume: "100 ml / Eau de Parfum",
+                topNotes: ["Neroli", "Mandarin", "Armut"],
+                heartNotes: ["Gece Yasemini", "Görkemli İris", "Sümbülteber"],
+                baseNotes: ["Sandal Ağacı", "Kaşmir Misk", "Benzoin"],
+                feel: "ferah",
+                area: "gunduz",
+                season: "yaz",
+                imageBg: "from-rose-900 to-pink-950",
+                description: "Gece açan nadide yasemin çiçeklerinin zarif ve pudralı dokunuşu. Zarafetini sadelikten alan kadınlar için."
+            },
+            {
+                id: 'p4',
+                name: "Cuir Impérial",
+                category: "erkek",
+                gender: "erkek",
+                price: 3600,
+                volume: "100 ml / Extrait de Parfum",
+                topNotes: ["Siyah Biber", "Kakule", "Kekik"],
+                heartNotes: ["İşlenmiş Süet", "Tütsü", "Mür Ruhu"],
+                baseNotes: ["Deri", "Paçuli", "Koyu Amber"],
+                feel: "odunsu",
+                area: "gece",
+                season: "kis",
+                imageBg: "from-stone-800 to-neutral-950",
+                description: "Karizmatik deri ve tütsü akorlarının gurme baharatlarla buluşması. Güçlü ve maskülen bir karakter."
+            },
+            {
+                id: 'p5',
+                name: "Santal Céleste",
+                category: "nis",
+                gender: "unisex",
+                price: 3850,
+                volume: "100 ml / Extrait de Parfum",
+                topNotes: ["İncir Yaprağı", "Menekşe Yaprağı", "Kakule"],
+                heartNotes: ["Avustralya Sandal Ağacı", "İris", "Papirüs"],
+                baseNotes: ["Sedir", "Ambergris", "Deri Akoru"],
+                feel: "odunsu",
+                area: "ozel",
+                season: "kis",
+                imageBg: "from-yellow-900 to-amber-950",
+                description: "Kremamsı sandal ağacının incir yapraklarıyla büyüleyici dansı. Sakinleştiren ve büyüleyen bir aura."
+            },
+            {
+                id: 'p6',
+                name: "Soleil d'Or",
+                category: "kadin",
+                gender: "kadin",
+                price: 2950,
+                volume: "100 ml / Eau de Parfum",
+                topNotes: ["Kan Portakalı", "Kalabriya Bergamotu"],
+                heartNotes: ["Portakal Çiçeği", "Ylang-Ylang", "Güneş Notaları"],
+                baseNotes: ["Tonka Fasulyesi", "Vanilya", "Güneş Amberi"],
+                feel: "ferah",
+                area: "gunduz",
+                season: "yaz",
+                imageBg: "from-amber-600 to-yellow-800",
+                description: "Akdeniz güneşinin altın ışıklarını teninizde hissettiren parlak ve neşeli bir çiçeksi-narenciye harmanı."
+            }
+        ];
+
+        // --- ACCORD DATA FOR EXPLORER ---
+        const accordsData = {
+            top: [
+                { name: "Kalabriya Bergamotu", desc: "İtalya'nın güneyinden toplanan en üst kalite narenciye. Açılışa canlandırıcı, parlak ve hafif tatlı bir ferahlık katar.", icon: "fa-lemon" },
+                { name: "Siyah Biber & Kakule", desc: "Parfüme ilk sıkıldığı anda dinamizm ve hafif ısı veren aromatik gurme baharat akorları.", icon: "fa-pepper-hot" },
+                { name: "Taze İncir Yaprağı", desc: "Yeşil, sütlü ve hafif odunsu dokusuyla doğal botanik atmosferi anında hissettirir.", icon: "fa-leaf" }
+            ],
+            heart: [
+                { name: "Isparta Gül Ekstraktı", desc: "Şafak vakti elle toplanan güllerin kalbinden elde edilen zengin, romantik ve gövdeli çiçeksi doku.", icon: "fa-spa" },
+                { name: "Gece Yasemini", desc: "Yoğun, çekici ve kremamsı yapısıyla parfümün karakterine lüks bir derinlik katar.", icon: "fa-seedling" },
+                { name: "İşlenmiş Süet & Tütsü", desc: "Gövdeye gizemli bir hava katan, tütsülenmiş deri ve reçine notalarının sanatsal birleşimi.", icon: "fa-smog" }
+            ],
+            base: [
+                { name: "Nadir Ud Ağacı (Oudh)", desc: "Güneydoğu Asya'nın en değerli reçineli ağacından elde edilen, saatler süren kalıcılığın ve lüksün simgesi.", icon: "fa-tree" },
+                { name: "Mysore Sandal Ağacı", desc: "İpeksi, iştah açıcı ve kremamsı ahşap dokusuyla tene yumuşakça yerleşen unutulmaz dip nota.", icon: "fa-cubes" },
+                { name: "Sıcak Amber & Vanilya", desc: "Ten ısısıyla birleştikçe daha da çekici hale gelen, afrodizyak etkili sıcak balzamık bitiş.", icon: "fa-fire" }
+            ]
+        };
+
+        // --- STATE MANAGEMENT ---
+        let cart = [];
+        let quizAnswers = { feel: '', area: '', season: '' };
+        let currentQuizStep = 1;
+
+        // --- DOM INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts(products);
+            switchAccordTab('top');
+            setupEventListeners();
+        });
+
+        // --- RENDER PRODUCTS ---
+        function renderProducts(items) {
+            const container = document.getElementById('productGrid');
+            if (!container) return;
+
+            if (items.length === 0) {
+                container.innerHTML = `<div class="col-span-full text-center py-12 text-brand-muted">Aradığınız kriterlere uygun ürün bulunamadı.</div>`;
+                return;
+            }
+
+            container.innerHTML = items.map(product => `
+                <div class="bg-white rounded-3xl p-6 border border-brand-green/10 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <!-- Product SVG Bottle Visual -->
+                        <div class="w-full h-64 rounded-2xl bg-gradient-to-br ${product.imageBg} p-4 flex flex-col items-center justify-center relative overflow-hidden mb-6 group-hover:scale-[1.02] transition-transform duration-300">
+                            <span class="absolute top-3 left-3 bg-white/20 backdrop-blur-md text-white text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full font-medium border border-white/20">
+                                ${product.gender}
+                            </span>
+                            
+                            <!-- Bottle Illustration -->
+                            <div class="w-24 h-40 flex flex-col items-center drop-shadow-2xl">
+                                <div class="w-8 h-6 bg-gradient-to-r from-brand-gold via-brand-gold-light to-brand-gold-dark rounded-t shadow-md"></div>
+                                <div class="w-4 h-2 bg-black/30"></div>
+                                <div class="w-20 h-32 bg-white/10 backdrop-blur-md rounded-2xl border border-white/40 flex flex-col items-center justify-center p-2 text-center">
+                                    <span class="font-serif text-[10px] text-brand-gold tracking-widest uppercase">Aromabar</span>
+                                    <span class="font-serif text-xs text-white font-semibold tracking-wider mt-0.5 line-clamp-1">${product.name}</span>
+                                </div>
+                            </div>
+
+                            <button onclick="openQuickView('${product.id}')" class="absolute bottom-3 bg-white/90 hover:bg-white text-brand-dark text-xs uppercase tracking-widest px-4 py-2 rounded-full font-medium shadow transition-all opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0">
+                                Hızlı Bakış
+                            </button>
+                        </div>
+
+                        <!-- Product Title & Info -->
+                        <span class="text-[10px] uppercase tracking-widest text-brand-gold font-semibold">${product.volume}</span>
+                        <h3 class="font-serif text-2xl text-brand-dark font-medium mt-1 mb-2 group-hover:text-brand-green transition-colors">${product.name}</h3>
+                        
+                        <!-- Notes Badges -->
+                        <div class="flex flex-wrap gap-1.5 my-3">
+                            ${product.topNotes.slice(0, 2).map(note => `<span class="bg-brand-bg-alt text-brand-dark/70 text-[10px] px-2 py-0.5 rounded-md font-light">${note}</span>`).join('')}
+                            <span class="bg-brand-bg-alt text-brand-dark/70 text-[10px] px-2 py-0.5 rounded-md font-light">+${product.heartNotes[0]}</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-brand-green/10 flex items-center justify-between mt-4">
+                        <div class="font-serif text-xl font-bold text-brand-dark">${product.price.toLocaleString('tr-TR')} TL</div>
+                        <button onclick="addToCart('${product.id}')" class="px-4 py-2.5 bg-brand-green text-white text-xs uppercase tracking-widest rounded-full hover:bg-brand-green-dark transition-colors flex items-center gap-2">
+                            <i class="fa-solid fa-plus"></i> Sepete Ekle
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // --- FILTER PRODUCTS BY CATEGORY ---
+        function filterProducts(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('bg-brand-green', 'text-white', 'active');
+                btn.classList.add('text-brand-dark');
+            });
+            event.target.classList.add('bg-brand-green', 'text-white', 'active');
+            event.target.classList.remove('text-brand-dark');
+
+            if (category === 'all') {
+                renderProducts(products);
+            } else {
+                const filtered = products.filter(p => p.category === category || p.gender === category);
+                renderProducts(filtered);
+            }
+        }
+
+        // --- ACCORD TAB EXPLORER SWITCHING ---
+        function switchAccordTab(tabKey) {
+            document.querySelectorAll('.accord-tab-btn').forEach(btn => {
+                btn.classList.remove('text-brand-green', 'border-brand-green', 'font-semibold');
+                btn.classList.add('text-brand-dark/60', 'border-transparent');
+            });
+
+            const activeBtn = document.getElementById(`accordTab-${tabKey}`);
+            if (activeBtn) {
+                activeBtn.classList.add('text-brand-green', 'border-brand-green', 'font-semibold');
+                activeBtn.classList.remove('text-brand-dark/60', 'border-transparent');
+            }
+
+            const container = document.getElementById('accordContent');
+            if (!container) return;
+
+            container.innerHTML = accordsData[tabKey].map(item => `
+                <div class="bg-white p-6 rounded-2xl border border-brand-green/10 shadow-sm hover:border-brand-gold transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-brand-bg-alt flex items-center justify-center text-brand-green text-xl mb-4">
+                        <i class="fa-solid ${item.icon}"></i>
+                    </div>
+                    <h4 class="font-serif text-xl text-brand-dark font-medium mb-2">${item.name}</h4>
+                    <p class="text-brand-muted text-xs font-light leading-relaxed">${item.desc}</p>
+                </div>
+            `).join('');
+        }
+
+        // --- QUIZ LOGIC ---
+        function selectQuizOption(step, answer) {
+            if (step === 1) quizAnswers.feel = answer;
+            if (step === 2) quizAnswers.area = answer;
+            if (step === 3) quizAnswers.season = answer;
+
+            if (step < 3) {
+                document.getElementById(`quizStep${step}`).classList.add('hidden');
+                document.getElementById(`quizStep${step + 1}`).classList.remove('hidden');
+                updateQuizDots(step + 1);
+            } else {
+                showQuizResult();
+            }
+        }
+
+        function updateQuizDots(activeStep) {
+            const dots = document.querySelectorAll('.quiz-step-dot');
+            dots.forEach((dot, index) => {
+                if (index < activeStep) {
+                    dot.classList.add('bg-brand-green');
+                    dot.classList.remove('bg-brand-green/20');
+                } else {
+                    dot.classList.remove('bg-brand-green');
+                    dot.classList.add('bg-brand-green/20');
+                }
+            });
+        }
+
+        function showQuizResult() {
+            document.getElementById('quizStep3').classList.add('hidden');
+            document.getElementById('quizProgress').classList.add('hidden');
+            
+            // Find matched product based on quiz answers or fallback
+            let matched = products.find(p => p.feel === quizAnswers.feel) || products[0];
+
+            document.getElementById('resultPerfumeName').textContent = matched.name;
+            document.getElementById('resultPerfumeDesc').textContent = matched.description;
+            document.getElementById('resultPerfumePrice').textContent = `${matched.price.toLocaleString('tr-TR')} TL`;
+            
+            const addBtn = document.getElementById('resultAddToCartBtn');
+            addBtn.onclick = () => addToCart(matched.id);
+
+            document.getElementById('quizResult').classList.remove('hidden');
+        }
+
+        function resetQuiz() {
+            quizAnswers = { feel: '', area: '', season: '' };
+            document.getElementById('quizResult').classList.add('hidden');
+            document.getElementById('quizStep1').classList.remove('hidden');
+            document.getElementById('quizProgress').classList.remove('hidden');
+            updateQuizDots(1);
+        }
+
+        // --- CART LOGIC ---
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            const existingIndex = cart.findIndex(item => item.id === productId);
+            if (existingIndex > -1) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            updateCartUI();
+            showToast(`"${product.name}" sepete eklendi.`);
+            openCart();
+        }
+
+        function updateQuantity(productId, delta) {
+            const index = cart.findIndex(item => item.id === productId);
+            if (index > -1) {
+                cart[index].quantity += delta;
+                if (cart[index].quantity <= 0) {
+                    cart.splice(index, 1);
+                }
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const badge = document.getElementById('cartBadge');
+            const container = document.getElementById('cartItemsContainer');
+            const subtotalEl = document.getElementById('cartSubtotal');
+            const totalEl = document.getElementById('cartTotal');
+            const shippingBar = document.getElementById('shippingBar');
+            const shippingDiff = document.getElementById('shippingDiff');
+
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+            // Update badge
+            badge.textContent = totalItems;
+            if (totalItems > 0) {
+                badge.classList.remove('scale-0');
+                badge.classList.add('scale-100');
+            } else {
+                badge.classList.remove('scale-100');
+                badge.classList.add('scale-0');
+            }
+
+            // Update Free Shipping Progress (Threshold: 2000 TL)
+            const threshold = 2000;
+            if (totalPrice >= threshold) {
+                shippingBar.style.width = '100%';
+                shippingDiff.textContent = 'Ücretsiz Kargo Kazanıldı!';
+                shippingDiff.classList.add('text-brand-green');
+            } else {
+                const perc = (totalPrice / threshold) * 100;
+                shippingBar.style.width = `${perc}%`;
+                shippingDiff.textContent = `${(threshold - totalPrice).toLocaleString('tr-TR')} TL Kaldı`;
+                shippingDiff.classList.remove('text-brand-green');
+            }
+
+            // Render Cart Items
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 text-brand-muted space-y-3">
+                        <i class="fa-solid fa-bag-shopping text-4xl text-brand-green/30"></i>
+                        <p class="text-xs">Sepetinizde henüz ürün bulunmuyor.</p>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = cart.map(item => `
+                    <div class="flex items-center justify-between p-3 bg-white rounded-2xl border border-brand-green/10">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-xl bg-gradient-to-br ${item.imageBg} flex items-center justify-center text-white text-xs font-serif font-bold shrink-0">
+                                AB
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-medium text-sm text-brand-dark">${item.name}</h4>
+                                <span class="text-[10px] text-brand-muted block">${item.price.toLocaleString('tr-TR')} TL</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button onclick="updateQuantity('${item.id}', -1)" class="w-6 h-6 rounded-full bg-brand-bg-alt flex items-center justify-center text-xs text-brand-dark hover:bg-brand-green hover:text-white transition-colors">-</button>
+                            <span class="text-xs font-semibold px-1">${item.quantity}</span>
+                            <button onclick="updateQuantity('${item.id}', 1)" class="w-6 h-6 rounded-full bg-brand-bg-alt flex items-center justify-center text-xs text-brand-dark hover:bg-brand-green hover:text-white transition-colors">+</button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            subtotalEl.textContent = `${totalPrice.toLocaleString('tr-TR')} TL`;
+            totalEl.textContent = `${totalPrice.toLocaleString('tr-TR')} TL`;
+        }
+
+        // --- QUICK VIEW MODAL ---
+        function openQuickView(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            const modalBody = document.getElementById('quickViewModalBody');
+            modalBody.innerHTML = `
+                <div class="w-full h-64 sm:h-80 rounded-2xl bg-gradient-to-br ${product.imageBg} p-6 flex flex-col items-center justify-center relative shadow-inner">
+                    <div class="w-24 h-40 flex flex-col items-center drop-shadow-2xl">
+                        <div class="w-8 h-6 bg-gradient-to-r from-brand-gold via-brand-gold-light to-brand-gold-dark rounded-t shadow-md"></div>
+                        <div class="w-4 h-2 bg-black/30"></div>
+                        <div class="w-20 h-32 bg-white/10 backdrop-blur-md rounded-2xl border border-white/40 flex flex-col items-center justify-center p-2 text-center">
+                            <span class="font-serif text-[10px] text-brand-gold tracking-widest uppercase">Aromabar</span>
+                            <span class="font-serif text-xs text-white font-semibold tracking-wider mt-0.5 line-clamp-2">${product.name}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <span class="text-xs uppercase tracking-widest text-brand-gold font-semibold">${product.volume}</span>
+                    <h3 class="font-serif text-3xl text-brand-dark font-medium">${product.name}</h3>
+                    <p class="text-xs text-brand-muted leading-relaxed font-light">${product.description}</p>
+                    
+                    <div class="space-y-2 pt-2">
+                        <div class="text-xs"><strong class="font-medium text-brand-dark">Üst Notalar:</strong> ${product.topNotes.join(', ')}</div>
+                        <div class="text-xs"><strong class="font-medium text-brand-dark">Kalp Notalar:</strong> ${product.heartNotes.join(', ')}</div>
+                        <div class="text-xs"><strong class="font-medium text-brand-dark">Dip Notalar:</strong> ${product.baseNotes.join(', ')}</div>
+                    </div>
+
+                    <div class="pt-4 border-t border-brand-green/10 flex items-center justify-between">
+                        <div class="font-serif text-2xl font-bold text-brand-dark">${product.price.toLocaleString('tr-TR')} TL</div>
+                        <button onclick="addToCart('${product.id}'); closeQuickView();" class="px-6 py-3 bg-brand-green text-white text-xs uppercase tracking-widest rounded-full hover:bg-brand-green-dark transition-colors">
+                            Sepete Ekle
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            const modal = document.getElementById('quickViewModal');
+            const content = document.getElementById('quickViewContent');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            content.classList.remove('scale-95');
+            content.classList.add('scale-100');
+        }
+
+        function closeQuickView() {
+            const modal = document.getElementById('quickViewModal');
+            const content = document.getElementById('quickViewContent');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+        }
+
+        // --- SEARCH FUNCTIONALITY ---
+        function handleSearch() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const resultsContainer = document.getElementById('searchResults');
+
+            if (!query) {
+                resultsContainer.innerHTML = `<p class="text-xs text-brand-muted text-center py-4">Aramak istediğiniz terimi yazmaya başlayın.</p>`;
+                return;
+            }
+
+            const matched = products.filter(p => 
+                p.name.toLowerCase().includes(query) || 
+                p.topNotes.some(n => n.toLowerCase().includes(query)) ||
+                p.heartNotes.some(n => n.toLowerCase().includes(query)) ||
+                p.baseNotes.some(n => n.toLowerCase().includes(query))
+            );
+
+            if (matched.length === 0) {
+                resultsContainer.innerHTML = `<p class="text-xs text-brand-muted text-center py-4">Eşleşen ürün bulunamadı.</p>`;
+                return;
+            }
+
+            resultsContainer.innerHTML = matched.map(p => `
+                <div onclick="openQuickView('${p.id}'); closeSearch();" class="flex items-center justify-between p-3 bg-white rounded-xl hover:bg-brand-bg-alt cursor-pointer transition-colors border border-brand-green/5">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-brand-green/10 flex items-center justify-center text-brand-green font-serif font-bold text-xs">
+                            AB
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-sm font-medium text-brand-dark">${p.name}</h4>
+                            <span class="text-[10px] text-brand-muted">${p.volume}</span>
+                        </div>
+                    </div>
+                    <span class="font-serif text-xs font-semibold text-brand-dark">${p.price.toLocaleString('tr-TR')} TL</span>
+                </div>
+            `).join('');
+        }
+
+        // --- DRAWER & MODAL TOGGLES ---
+        function openCart() {
+            const drawer = document.getElementById('cartDrawer');
+            const content = document.getElementById('cartDrawerContent');
+            drawer.classList.remove('opacity-0', 'pointer-events-none');
+            content.classList.remove('translate-x-full');
+        }
+
+        function closeCart() {
+            const drawer = document.getElementById('cartDrawer');
+            const content = document.getElementById('cartDrawerContent');
+            drawer.classList.add('opacity-0', 'pointer-events-none');
+            content.classList.add('translate-x-full');
+        }
+
+        function openMobileMenu() {
+            const drawer = document.getElementById('mobileDrawer');
+            const content = document.getElementById('mobileDrawerContent');
+            drawer.classList.remove('opacity-0', 'pointer-events-none');
+            content.classList.remove('-translate-x-full');
+        }
+
+        function closeMobileMenu() {
+            const drawer = document.getElementById('mobileDrawer');
+            const content = document.getElementById('mobileDrawerContent');
+            drawer.classList.add('opacity-0', 'pointer-events-none');
+            content.classList.add('-translate-x-full');
+        }
+
+        function openSearch() {
+            const modal = document.getElementById('searchModal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            document.getElementById('searchInput').focus();
+        }
+
+        function closeSearch() {
+            const modal = document.getElementById('searchModal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        // --- TOAST NOTIFICATIONS ---
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMessage').textContent = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        function handleCheckout() {
+            if (cart.length === 0) {
+                showToast("Sepetiniz boş!");
+                return;
+            }
+            showToast("Sipariş ekranına yönlendiriliyorsunuz...");
+        }
+
+        function handleNewsletterSubmit(e) {
+            e.preventDefault();
+            showToast("Aromabar bültenine başarıyla kaydoldunuz.");
+            e.target.reset();
+        }
+
+        // --- EVENT LISTENERS SETUP ---
+        function setupEventListeners() {
+            document.getElementById('cartOpenBtn').addEventListener('click', openCart);
+            document.getElementById('cartCloseBtn').addEventListener('click', closeCart);
+            document.getElementById('mobileMenuBtn').addEventListener('click', openMobileMenu);
+            document.getElementById('mobileMenuCloseBtn').addEventListener('click', closeMobileMenu);
+            document.getElementById('quickViewCloseBtn').addEventListener('click', closeQuickView);
+            document.getElementById('searchOpenBtn').addEventListener('click', openSearch);
+            document.getElementById('searchCloseBtn').addEventListener('click', closeSearch);
+
+            // Close mobile menu when clicking nav links
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+        }
+    </script>
+</body>
+</html>
